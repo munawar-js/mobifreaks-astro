@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+// Load the JSON object via the default export
+import data from '../data/templates.json';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>Mobifreaks</h1>
+		<p class="instructions">
+			Free mobile website templates. We aim to make web, mobile friendly.
+		</p>
+		<section role="list" class="link-card-grid">
+			{
+				data.map(({
+					title,
+					downloadURL,
+					githubURL,
+					demoURL,
+					imageURL
+				}) => (
+				<Card
+					title={title}
+					downloadURL={downloadURL}
+					githubURL={githubURL}
+					demoURL={demoURL}
+					imageURL={imageURL}
+				/>
+				))
+			}
+		</section>
+		<footer>
+			&copy; 2010 Mobifreaks.com
+		</footer>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 960px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 300;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+	footer {
+		padding: 5rem 0;
+		font-size: 12px;
+		opacity: 0.7;
+		text-align: center;
+	}
+</style>
