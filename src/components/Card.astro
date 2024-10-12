@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 interface Props {
 	title: string;
 	demoURL: string;
@@ -11,7 +12,7 @@ const { demoURL, title, imageURL } = Astro.props;
 ---
 
 <div class="link-card">
-	<a href={demoURL}><img src={imageURL} alt={title + " preview"}/></a>
+	<a href={demoURL}><Image src={imageURL} alt={title + " preview"} width={300} height={533} densities={[1.5, 2, 3]} /></a>
 	<div class="buttons">
 		<header>
 			<h2>{title}</h2>

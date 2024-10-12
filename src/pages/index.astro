@@ -4,6 +4,7 @@ import Card from '../components/Card.astro';
 
 // Load the JSON object via the default export
 import data from '../data/just-demo.json';
+import { Image } from 'astro:assets';
 ---
 
 <Layout title="Free mobile website templates | Mobifreaks.com">
@@ -13,7 +14,8 @@ import data from '../data/just-demo.json';
 			Free mobile website templates. We aim to make web, mobile friendly.
 		</p>
 		<div class="card">
-				<img src="/images/mobifreaks-mega-bungle.png" alt="Mega Bungle" class="card-image">
+				<Image src="/images/mobifreaks-mega-bungle.png" alt="Mega Bungle" class="card-image" width={960} height={540} 
+				densities={[1.5, 2, 3]} />
 				<div class="card-content">
 						<h2 class="card-title">Mobifreaks Mega Bundle: 22 Ready-to-Use stunning mobile website templates</h2>
 						<p class="card-description">Unlock a treasure trove of 22 sleek and fully mobile-optimized website templates, perfect for businesses, portfolios, blogs, and more. Crafted with attention to detail, </p>
