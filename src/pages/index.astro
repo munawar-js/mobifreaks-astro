@@ -9,14 +9,23 @@ import megaBundle from '../images/mobifreaks-mega-bungle.png';
 ---
 
 <Layout title="Free mobile website templates | Mobifreaks.com">
+	<link rel="preload" as="image" href={megaBundle.src}>
 	<main>
 		<h1>Mobifreaks</h1>
 		<p class="instructions">
 			Free mobile website templates. We aim to make web, mobile friendly.
 		</p>
 		<div class="card">
-				<Image src={megaBundle} alt="Mobifreaks Mega Bundle" class="card-image" width={960} height={540} 
-				densities={[1.5, 2, 3]} />
+				<Image 
+					src={megaBundle} 
+					alt="Mobifreaks Mega Bundle" 
+					class="card-image" 
+					width={960} 
+					height={540} 
+					densities={[1.5, 2, 3]} 
+					decoding="async"
+					loading="eager"
+				/>
 				<div class="card-content">
 						<h2 class="card-title">Mobifreaks Mega Bundle: 22 Ready-to-Use stunning mobile website templates</h2>
 						<p class="card-description">Unlock a treasure trove of 22 sleek and fully mobile-optimized website templates, perfect for businesses, portfolios, blogs, and more. Crafted with attention to detail, </p>
