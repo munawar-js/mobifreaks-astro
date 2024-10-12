@@ -7,7 +7,7 @@ interface Props {
 	imageURL: string;
 }
 
-const { demoURL, title, downloadURL, githubURL, imageURL } = Astro.props;
+const { demoURL, title, imageURL } = Astro.props;
 ---
 
 <div class="link-card">
@@ -16,9 +16,7 @@ const { demoURL, title, downloadURL, githubURL, imageURL } = Astro.props;
 		<header>
 			<h2>{title}</h2>
 		</header>
-		<a href={demoURL}>Demo</a>
-		<a href={downloadURL}>Download</a>
-		<a href={githubURL}>Github</a>
+		<a href={demoURL} title={"View " + title} class="demo-btn">Demo</a>
 	</div>
 </div>
 <style>
@@ -42,7 +40,6 @@ const { demoURL, title, downloadURL, githubURL, imageURL } = Astro.props;
 		border-radius: 8px;
 		color: white;
 		opacity: 0.8;
-		margin-right: 1.25rem;
 		font-size: 14px;
 		&:hover {
 			color: pink;
@@ -55,5 +52,20 @@ const { demoURL, title, downloadURL, githubURL, imageURL } = Astro.props;
 	p {
 		margin-top: 0.5rem;
 		margin-bottom: 0;
+	}
+	.demo-btn {
+		display: block;
+		background-color: #000;
+		color: white;
+		text-align: center;
+		border: none;
+		padding: 10px 40px;
+		border-radius: 5px;
+		font-size: 1.3rem;
+		font-weight: 400;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		text-decoration: none;
+		margin:1rem 0 0;
 	}
 </style>

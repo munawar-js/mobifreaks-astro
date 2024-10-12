@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 
 // Load the JSON object via the default export
-import data from '../data/templates.json';
+import data from '../data/just-demo.json';
 ---
 
 <Layout title="Free mobile website templates | Mobifreaks.com">
@@ -12,19 +12,26 @@ import data from '../data/templates.json';
 		<p class="instructions">
 			Free mobile website templates. We aim to make web, mobile friendly.
 		</p>
+		<div class="card">
+				<img src="/images/mobifreaks-mega-bungle.png" alt="Mega Bungle" class="card-image">
+				<div class="card-content">
+						<h2 class="card-title">Mobifreaks Mega Bundle: 22 Ready-to-Use stunning mobile website templates</h2>
+						<p class="card-description">Unlock a treasure trove of 22 sleek and fully mobile-optimized website templates, perfect for businesses, portfolios, blogs, and more. Crafted with attention to detail, </p>
+						<div class="card-footer">
+							<a href="https://heymunawar.gumroad.com/l/mf-2024" class="get-this-btn">Get this</a>
+							<span class="running-out">Running out! Only 10 left</span>
+						</div>
+				</div>
+		</div>
 		<section role="list" class="link-card-grid">
 			{
 				data.map(({
 					title,
-					downloadURL,
-					githubURL,
 					demoURL,
 					imageURL
 				}) => (
 				<Card
 					title={title}
-					downloadURL={downloadURL}
-					githubURL={githubURL}
 					demoURL={demoURL}
 					imageURL={imageURL}
 				/>
@@ -102,5 +109,79 @@ import data from '../data/templates.json';
 		font-size: 12px;
 		opacity: 0.7;
 		text-align: center;
+	}
+	:root {
+			--primary-color: #3a86ff;
+			--text-color: #333;
+			--background-color: #f0f0f0;
+			--card-background: #ffffff;
+			--accent-color: #ff006e;
+	}
+
+	.card {
+			background-color: var(--card-background);
+			border-radius: 12px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+			width: 100%;
+			transition: transform 0.3s ease;
+			margin-bottom: 4rem;
+	}
+
+	.card:hover {
+			transform: translateY(-5px);
+	}
+
+	.card-image {
+		width: 100%;
+		max-height: 100%;
+		object-fit: cover;
+	}
+
+	.card-content {
+		padding: 20px;
+	}
+
+	.card-title {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: var(--text-color);
+		margin: 0 0 10px 0;
+	}
+
+	.card-description {
+		font-size: 1rem;
+		color: var(--text-color);
+		margin-bottom: 20px;
+	}
+
+	.card-footer {
+		display: flex;
+		justify-content:flex-start;
+		align-items: center;
+	}
+
+	.running-out {
+		font-size: 1rem;
+		color: var(--accent-color);
+		font-weight: bold;
+		margin-left: 2rem;
+	}
+
+	.get-this-btn {
+		background-color: var(--primary-color);
+		color: white;
+		border: none;
+		padding: 10px 40px;
+		border-radius: 5px;
+		font-size: 1.3rem;
+		font-weight: 400;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		text-decoration: none;
+	}
+
+	.get-this-btn:hover {
+		background-color: #2a75e6;
 	}
 </style>
