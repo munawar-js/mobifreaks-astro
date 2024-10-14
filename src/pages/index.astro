@@ -4,28 +4,24 @@ import Card from '../components/Card.astro';
 
 // Load the JSON object via the default export
 import data from '../data/just-demo.json';
-import { Image } from 'astro:assets';
-import megaBundle from '../images/mobifreaks-mega-bungle.png';
 ---
 
 <Layout title="Free mobile website templates | Mobifreaks.com">
-	<link rel="preload" as="image" href={megaBundle.src}>
+	<link rel="preload" as="image" href='images/mobifreaks-mega-bundle.png'/>
 	<main>
 		<h1>Mobifreaks</h1>
 		<p class="instructions">
 			Free mobile website templates. We aim to make web, mobile friendly.
 		</p>
 		<div class="card">
-				<Image 
-					src={megaBundle} 
-					alt="Mobifreaks Mega Bundle" 
-					class="card-image" 
-					width={960} 
-					height={540} 
-					densities={[1.5, 2, 3]} 
-					decoding="async"
-					loading="eager"
-				/>
+			<img src="images/mobifreaks-mega-bundle.png" 
+			srcset="images/mobifreaks-mega-bundle@1.5x.png 1.5x, 
+							images/mobifreaks-mega-bundle@0.75x.png 0.75x, 
+							images/mobifreaks-mega-bundle@0.5x.png 0.5x, 
+							images/mobifreaks-mega-bundle@3x.png 3x, 
+							images/mobifreaks-mega-bundle.png 1x, 
+							images/mobifreaks-mega-bundle@2x.png 2x" 
+			alt="MobiFreaks Mega Bundle" />
 				<div class="card-content">
 						<h2 class="card-title">Mobifreaks Mega Bundle: 22 Ready-to-Use stunning mobile website templates</h2>
 						<p class="card-description">Unlock a treasure trove of 22 sleek and fully mobile-optimized website templates, perfect for businesses, portfolios, blogs, and more. Crafted with attention to detail, </p>
